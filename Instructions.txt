@@ -11,3 +11,4 @@
 10.Just sign out and login to make your Jarvis do some basic stuff for you
 
 Jarvis understands English-India only
+You need to be connected to internet for jarvis to work
