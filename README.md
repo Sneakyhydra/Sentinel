@@ -14,5 +14,6 @@ It can understand only English-India.
 
 My dream is to make this project into -
 - A fully offline speech recognizing assistant
-- Have a system tray icon to know the state of Script
 - An AI Powered assistant
+
+Recently added system tray icons to know the state of scripts
