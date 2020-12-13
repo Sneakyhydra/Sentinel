@@ -1,11 +1,12 @@
 # JARVIS #
 ## Voice Assistant ##
-
 This is a simple voice assistant made with python 3.9 using conditional statements.
 This is just a fun project.
 
 It uses Microsoft's SAPI5 and the male voice that comes with windows to speak.
+
 It uses Google speech recognition to convert speech to text. 
+
 It requires Internet connection to recognize speech.
 
 The offline alternative Pocket Sphinx is extremely inaccurate and needs to be trained. 
@@ -34,11 +35,11 @@ Recently added system tray icons to know the state of scripts
 ## Commands and Shortcuts ##
 ### Commands that just open something- ###
 1. open youtube
-2. open chrome(needs chrome to be installed in the default path i.e. in program files)
-3. open code(needs visual studio code to be installed in the default path)
+2. open chrome
+3. open code
 4. open stackoverflow
-5. open anaconda(needs anaconda to be installed in the default path)
-6. open udemy(opens my learning page in udemy if logged in)
+5. open anaconda
+6. open udemy
 7. open gmail
 
 ### Commands to search- ###
@@ -65,7 +66,6 @@ Recently added system tray icons to know the state of scripts
 2. close(closes jarvis and runs startingassistant script)
 
 ### WakeUpJarvis Commands- ###
-
 1. "wake up" or "jarvis" (closes wakeupjarvis and runs jarvis script)
 2. close (closes wakeupjarvis and runs startingassistant script)
 
@@ -75,10 +75,13 @@ Recently added system tray icons to know the state of scripts
 
 ## Editing Scripts ##
 To edit the scripts simply change the file extension from .pyw to .txt
+
 After editing scripts change the file extension back to .pyw
 
 To edit Voice Commands, Edit Jarvis.pyw
+
 To edit Wish on Login, Edit WishMe.pyw
+
 To edit Shortcut to open Jarvis, Edit StartingAssistant.pyw
 
 All scripts have instructions in them on what to edit and how to edit all the stuff
