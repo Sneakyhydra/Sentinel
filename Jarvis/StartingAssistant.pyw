@@ -1,3 +1,6 @@
+# There's a comment before every line you would want to edit that tells how to edit them
+# A comment starts with "#"
+
 from pynput import keyboard
 import os
 import pystray
@@ -5,6 +8,8 @@ from PIL import Image
 from pystray import Menu, MenuItem
 
 # The key combination to check
+# You can change the key combination to launch jarvis by changing the below List
+# You can replace the j with any other letter and capital J with the capital of that same letter
 COMBINATIONS = [
     {keyboard.Key.shift, keyboard.KeyCode(char='j')},
     {keyboard.Key.shift, keyboard.KeyCode(char='J')}
@@ -27,7 +32,7 @@ def exit_action(icon):
     icon.visible = False
 
 def execute():
-    os.startfile("C:\\Users\\dhruv\\Desktop\\Code Playground\\Jarvis\\WakeUpJarvis.pyw")
+    os.startfile("C:\\Users\\dhruv\\Desktop\\Code Playground\\Jarvis\\Jarvis.pyw")
     StartingAssistant_icon.visible = False
     exit()
 
