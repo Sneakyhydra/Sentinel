@@ -14,8 +14,6 @@ My dream is to make this project into
 - A fully offline speech recognizing assistant
 - An AI Powered assistant  
 
-Recently added system tray icons to know the state of scripts
-
 ## Setup ##
 1. Install Latest Version of Python and add to path
 2. Open cmd
@@ -84,3 +82,12 @@ All scripts have instructions in them on what to edit and how to edit all the st
 6. Click on OK
 
 Now you will be able to change the extension from .pyw to .txt and vice versa
+
+## System Tray Icons ##
+Green icon means Jarvis.pyw is listening
+Yellow icon means Jarvis.pyw is recognising
+Red icon means Jarvis.pyw didn't understand what you said
+
+Blue icon means WakeUpJarvis.pyw is running
+
+Black icon with stars means StartingAssistant.pyw is running
