@@ -7,14 +7,10 @@ It uses Microsoft's SAPI5 and the male voice that comes with windows to speak.
 It uses Google speech recognition to convert speech to text.   
 It requires Internet connection to recognize speech.  
 
-The offline alternative Pocket Sphinx is extremely inaccurate and needs to be trained. 
-
+The offline alternative Pocket Sphinx is extremely inaccurate and needs to be trained.   
 It can understand only English-India.
 
-My dream is to make this project into -
-- A fully offline speech recognizing assistant
-- An AI Powered assistant
-
+My dream is to make this project into - A fully offline speech recognizing assistant - An AI Powered assistant  
 Recently added system tray icons to know the state of scripts
 
 ## Setup ##
@@ -26,8 +22,7 @@ Recently added system tray icons to know the state of scripts
 6. Type pip install pipwin
 7. Type pipwin install pyaudio
 8. Create a Desktop Shortcut of "Jarvis.pyw" and "WishMe.pyw".
-9. Move both shortcuts to the startup folder
-- path = "C:\Users\username\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\"
+9. Move both shortcuts to the startup folder - path = "C:\Users\username\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\"
 10. Just sign out and login to make your Jarvis do some basic stuff for you
 
 ## Commands and Shortcuts ##
@@ -52,12 +47,8 @@ Recently added system tray icons to know the state of scripts
 1. thank you
 
 ### System Commands- ###
-1. shutdown
-- yes(will shutdown your computer or laptop)
-- no(will do nothing)
-2. restart
-- yes(will restart your computer or laptop)
-- no(will do nothing)
+1. shutdown - yes(will shutdown your computer or laptop) - no(will do nothing)
+2. restart - yes(will restart your computer or laptop) - no(will do nothing)
 
 ### Closing Jarvis- ###
 1. go to sleep (closes jarvis and runs wakeupjarvis script)
