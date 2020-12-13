@@ -22,10 +22,11 @@ My dream is to make this project into
 5. Type pip install pynput
 6. Type pip install pipwin
 7. Type pipwin install pyaudio
-8. Create a Desktop Shortcut of "Jarvis.pyw" and "WishMe.pyw".
-9. Move both shortcuts to the startup folder
+8. Type pip install pystray
+9. Create a Desktop Shortcut of "Jarvis.pyw" and "WishMe.pyw".
+10. Move both shortcuts to the startup folder
 - path = "C:\Users\username\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\"
-10. Just sign out and login to make your Jarvis do some basic stuff for you
+11. Just sign out and login to make your Jarvis do some basic stuff for you
 
 ## Commands and Shortcuts ##
 ### Commands that just open something- ###
