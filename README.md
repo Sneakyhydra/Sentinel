@@ -1,5 +1,5 @@
-# JARVIS
-##Voice Assistant
+# JARVIS #
+## Voice Assistant ##
 
 This is a simple voice assistant made with python 3.9 using conditional statements.
 This is just a fun project.
@@ -18,7 +18,7 @@ My dream is to make this project into -
 
 Recently added system tray icons to know the state of scripts
 
-##Setup
+## Setup ##
 1.Install Latest Version of Python and add to path
 2.Open cmd
 3.Type pip install pyttsx3
@@ -31,8 +31,8 @@ Recently added system tray icons to know the state of scripts
 -path = "C:\Users\username\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\"
 10.Just sign out and login to make your Jarvis do some basic stuff for you
 
-##Commands and Shortcuts
-###Commands that just open something-
+## Commands and Shortcuts ##
+### Commands that just open something- ###
 1.open youtube
 2.open chrome(needs chrome to be installed in the default path i.e. in program files)
 3.open code(needs visual studio code to be installed in the default path)
@@ -41,18 +41,18 @@ Recently added system tray icons to know the state of scripts
 6.open udemy(opens my learning page in udemy if logged in)
 7.open gmail
 
-###Commands to search-
+### Commands to search- ###
 1.search youtube for "anything you want" (opens in default browser)
 2.search google for "anything you want" (opens in default browser)
 
-###Asking-
+### Asking- ###
 1.the time
 2.who are you
 
-###Thanking-
+### Thanking- ###
 1.thank you
 
-###System Commands-
+### System Commands- ###
 1.shutdown
 -yes(will shutdown your computer or laptop)
 -no(will do nothing)
@@ -60,20 +60,20 @@ Recently added system tray icons to know the state of scripts
 -yes(will restart your computer or laptop)
 -no(will do nothing)
 
-###Closing Jarvis-
+### Closing Jarvis- ###
 1.go to sleep (closes jarvis and runs wakeupjarvis script)
 2.close(closes jarvis and runs startingassistant script)
 
-###WakeUpJarvis Commands-
+### WakeUpJarvis Commands- ###
 
 1."wake up" or "jarvis" (closes wakeupjarvis and runs jarvis script)
 2.close (closes wakeupjarvis and runs startingassistant script)
 
-###StartingAssistant Shortcuts-
+### StartingAssistant Shortcuts- ###
 1.There are no voice commands in this script
 2."left shift + j" (closes startingassistant and runs wakeupjarvis script)
 
-##Editing Scripts
+## Editing Scripts ##
 To edit the scripts simply change the file extension from .pyw to .txt
 After editing scripts change the file extension back to .pyw
 
@@ -83,7 +83,7 @@ To edit Shortcut to open Jarvis, Edit StartingAssistant.pyw
 
 All scripts have instructions in them on what to edit and how to edit all the stuff
 
-##Changing Extension
+## Changing Extension ##
 1. Press win key
 2. Search for "File Explorer Options" and open it
 3. Open View Tab in the window opened
