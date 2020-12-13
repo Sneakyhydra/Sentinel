@@ -84,8 +84,8 @@ All scripts have instructions in them on what to edit and how to edit all the st
 Now you will be able to change the extension from .pyw to .txt and vice versa
 
 ## System Tray Icons ##
-Green icon means Jarvis.pyw is listening
-Yellow icon means Jarvis.pyw is recognising
+Green icon means Jarvis.pyw is listening  
+Yellow icon means Jarvis.pyw is recognising  
 Red icon means Jarvis.pyw didn't understand what you said
 
 Blue icon means WakeUpJarvis.pyw is running
