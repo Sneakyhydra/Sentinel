@@ -3,11 +3,9 @@
 This is a simple voice assistant made with python 3.9 using conditional statements.
 This is just a fun project.
 
-It uses Microsoft's SAPI5 and the male voice that comes with windows to speak.
-
-It uses Google speech recognition to convert speech to text. 
-
-It requires Internet connection to recognize speech.
+It uses Microsoft's SAPI5 and the male voice that comes with windows to speak.  
+It uses Google speech recognition to convert speech to text.   
+It requires Internet connection to recognize speech.  
 
 The offline alternative Pocket Sphinx is extremely inaccurate and needs to be trained. 
 
@@ -35,10 +33,10 @@ Recently added system tray icons to know the state of scripts
 ## Commands and Shortcuts ##
 ### Commands that just open something- ###
 1. open youtube
-2. open chrome
-3. open code
+2. open chrome(May need to edit path in Jarvis.pyw)
+3. open code(You need to edit path in Jarvis.pyw)
 4. open stackoverflow
-5. open anaconda
+5. open anaconda(You need to edit path in Jarvis.pyw)
 6. open udemy
 7. open gmail
 
@@ -74,14 +72,11 @@ Recently added system tray icons to know the state of scripts
 2. "left shift + j" (closes startingassistant and runs wakeupjarvis script)
 
 ## Editing Scripts ##
-To edit the scripts simply change the file extension from .pyw to .txt
-
+To edit the scripts simply change the file extension from .pyw to .txt  
 After editing scripts change the file extension back to .pyw
 
-To edit Voice Commands, Edit Jarvis.pyw
-
-To edit Wish on Login, Edit WishMe.pyw
-
+To edit Voice Commands, Edit Jarvis.pyw  
+To edit Wish on Login, Edit WishMe.pyw  
 To edit Shortcut to open Jarvis, Edit StartingAssistant.pyw
 
 All scripts have instructions in them on what to edit and how to edit all the stuff
