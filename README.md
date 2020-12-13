@@ -48,8 +48,12 @@ My dream is to make this project into
 1. thank you
 
 ### System Commands- ###
-1. shutdown  - yes(will shutdown your computer or laptop)  - no(will do nothing)
-2. restart  - yes(will restart your computer or laptop)  - no(will do nothing)
+1. shutdown
+- yes(will shutdown your computer or laptop)
+- no(will do nothing)
+2. restart
+- yes(will restart your computer or laptop)
+- no(will do nothing)
 
 ### Closing Jarvis- ###
 1. go to sleep (closes jarvis and runs wakeupjarvis script)
