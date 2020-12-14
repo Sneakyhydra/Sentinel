@@ -34,7 +34,7 @@ def exit_action(icon):
     icon.visible = False
 
 def execute():
-    os.startfile(Jarvis.pyw)
+    os.startfile(Jarvis_path)
     StartingAssistant_icon.visible = False
     exit()
 
