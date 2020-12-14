@@ -38,8 +38,11 @@ def takeCommand():
     return query
 
 if __name__ == "__main__":
-    WakeUpJarvis_icon_path = "C:\\Users\\dhruv\\Desktop\\Code Playground\\Jarvis\\WakeUpJarvis.png"
-
+    # Change these paths immediately     
+    WakeUpJarvis_icon_path = "path to WakeUpJarvis.png"
+    Jarvis_path = "path to Jarvis.pyw"
+    StartingAssistant_path = "path to StartingAssistant.pyw"
+    
     WakeUpJarvis_image = Image.open(WakeUpJarvis_icon_path)
     WakeUpJarvis_icon = pystray.Icon("Listening")
     WakeUpJarvis_icon.menu = Menu(MenuItem('Exit', lambda : exit_action(WakeUpJarvis_icon)),)
@@ -49,15 +52,15 @@ if __name__ == "__main__":
     while True:
         query = takeCommand().lower()
         if "close" in query:
-            os.startfile("C:\\Users\\dhruv\\Desktop\\Code Playground\\Jarvis\\StartingAssistant.pyw")
+            os.startfile(StartingAssistant_path)
             exit()
         elif "jarvis" in query:
             speak("Yes Sir")
-            os.startfile("C:\\Users\\dhruv\\Desktop\\Code Playground\\Jarvis\\Jarvis.pyw")
+            os.startfile(Jarvis_path)
             exit()
         elif "wake up" in query:
             speak("Yes Sir")
-            os.startfile("C:\\Users\\dhruv\\Desktop\\Code Playground\\Jarvis\\Jarvis.pyw")
+            os.startfile(Jarvis_path)
             exit()
         else:
             pass
