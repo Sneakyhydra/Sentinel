@@ -16,17 +16,15 @@ My dream is to make this project into
 
 ## Setup ##
 1. Install Latest Version of Python and add to path
-2. Open cmd
-3. Type pip install pyttsx3
-4. Type pip install SpeechRecognition
-5. Type pip install pynput
-6. Type pip install pipwin
-7. Type pipwin install pyaudio
-8. Type pip install pystray
-9. Create a Desktop Shortcut of "Jarvis.pyw" and "WishMe.pyw".
-10. Move both shortcuts to the startup folder
-- path = "C:\Users\username\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\"
-11. Just sign out and login to make your Jarvis do some basic stuff for you
+2. Open cmd-here.exe
+3. Type pip install -r requirements.txt
+4. Type pipwin install pyaudio
+5. Create a Desktop Shortcut of "Jarvis.pyw" and "WishMe.pyw".
+6. Move both shortcuts to the startup folder
+  1. Press win + r
+  2. Type shell:startup
+  3. Move Both the shortcuts to the startup folder
+7. Just sign out and login to make your Jarvis do some basic stuff for you
 
 ## Commands and Shortcuts ##
 ### Commands that just open something- ###
