@@ -21,9 +21,9 @@ My dream is to make this project into
 4. Type pipwin install pyaudio
 5. Create a Desktop Shortcut of "Jarvis.pyw" and "WishMe.pyw".
 6. Move both shortcuts to the startup folder
-  1. Press win + r
-  2. Type shell:startup
-  3. Move Both the shortcuts to the startup folder
+  (1) Press win + r
+  (2) Type shell:startup
+  (3) Move Both the shortcuts to the startup folder
 7. Just sign out and login to make your Jarvis do some basic stuff for you
 
 ## Commands and Shortcuts ##
