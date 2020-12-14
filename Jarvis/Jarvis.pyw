@@ -19,7 +19,7 @@ def Common():
     # Change path immediately
     # Set path to the location of Jarvis Folder
     # For Example- path = "C:\\Program Files\\Jarvis\\"
-    path = "C:\\Users\\dhruv\\Desktop\\Code Playground\\Jarvis\\"
+    path = "Set this path immediately"
     return path
 
 def speak(audio):
@@ -227,8 +227,8 @@ if __name__ == "__main__":
     # You can change below paths so that they point to whatever you want
     # These are the default paths
     chrome_path = "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe"
-    code_path = "C:\\Users\\dhruv\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe"
-    anaconda_path = "C:\\Users\\dhruv\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Anaconda3 (64-bit)\\Anaconda Navigator (anaconda3)"        
+    code_path = "C:\\Users\\username\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe"
+    anaconda_path = "C:\\Users\\username\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Anaconda3 (64-bit)\\Anaconda Navigator (anaconda3)"        
     
     while True:
         Listening_icon.visible = False
