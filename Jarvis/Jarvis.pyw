@@ -121,12 +121,12 @@ def voiceCommands(query):
         
         # Closes Jarvis and opens the script that starts Jarvis after pressing left_shift+j
         elif 'close' in query:
-            os.startfile("C:\\Users\\dhruv\\Desktop\\Code Playground\\Jarvis\\StartingAssistant.pyw")
+            os.startfile(StartingAssistant_path)
             exit()
 
         # Closes Jarvis and opens the script that starts Jarvis after saying wake_up or jarvis
         elif 'go to sleep' in query:
-            os.startfile("C:\\Users\\dhruv\\Desktop\\Code Playground\\Jarvis\\WakeUpJarvis.pyw")
+            os.startfile(WakeUpJarvis_path)
             exit()
 
         # Searches Youtube for anything you want
@@ -214,10 +214,14 @@ if __name__ == "__main__":
     Ididnotget_icon.icon = Ididnotget_image
     Ididnotget_icon.title = 'Jarvis'
 
+    # Change these paths immediately, refer to chrome_path below
+    StartingAssistant_path = "path to StartingAssistant.pyw"
+    WakeUpJarvis_path = "path to WakeUpJarvis.pyw"
+    
     # You can change below paths so that they point to whatever you want
     chrome_path = "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe"
-    code_path = "C:\\Users\\dhruv\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe"
-    anaconda_path = "C:\\Users\\dhruv\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Anaconda3 (64-bit)\\Anaconda Navigator (anaconda3)"        
+    code_path = "Set this path"
+    anaconda_path = "Set this path"        
     
     while True:
         Listening_icon.visible = False
