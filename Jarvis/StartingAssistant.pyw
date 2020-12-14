@@ -6,6 +6,7 @@ import os
 import pystray
 from PIL import Image
 from pystray import Menu, MenuItem
+import Jarvis
 
 # The key combination to check
 # You can change the key combination to launch jarvis by changing the below List
@@ -18,9 +19,9 @@ COMBINATIONS = [
 # The currently active modifiers
 current = set()
 
-# Change these paths immediately
-StartingAssistant_icon_path = "path to StartingAssistant.gif"
-Jarvis_path = "path to Jarvis.pyw
+Common_path = Jarvis.Common()
+StartingAssistant_icon_path = Common_path + "StartingAssistant.gif"
+Jarvis_path = Common_path + "Jarvis.pyw"
 
 StartingAssistant_image = Image.open(StartingAssistant_icon_path)
 StartingAssistant_icon = pystray.Icon("Listening")

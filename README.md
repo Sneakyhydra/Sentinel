@@ -24,7 +24,9 @@ My dream is to make this project into
   (1) Press win + r  
   (2) Type shell:startup  
   (3) Move Both the shortcuts to the startup folder  
-7. Just sign out and login to make your Jarvis do some basic stuff for you
+7. Edit the "path" Variable in Jarvis.pyw on line 22
+8. Refer to the Editing Scripts Section to learn how to edit the scripts 
+9. Sign out and login to make your Jarvis do some basic stuff for you
 
 ## Commands and Shortcuts ##
 ### Commands that just open something- ###

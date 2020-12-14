@@ -15,6 +15,13 @@ engine = pyttsx3.init('sapi5')
 voices = engine.getProperty('voices')
 engine.setProperty('voice', voices[0].id)
 
+def Common():
+    # Change path immediately
+    # Set path to the location of Jarvis Folder
+    # For Example- path = "C:\\Program Files\\Jarvis\\"
+    path = "C:\\Users\\dhruv\\Desktop\\Code Playground\\Jarvis\\"
+    return path
+
 def speak(audio):
     engine.say(audio)
     engine.runAndWait()
@@ -192,12 +199,12 @@ def voiceCommands(query):
 
 if __name__ == "__main__":
 
-    # Change these paths immediately, refer to chrome_path below
-    StartingAssistant_path = "path to StartingAssistant.pyw"
-    WakeUpJarvis_path = "path to WakeUpJarvis.pyw"
-    Listening_icon_path = "path to Listening.png"
-    Recognizing_icon_path = "path to Recognizing.png"
-    Ididnotget_icon_path = "path to Ididnotget.png"
+    Common_path = Common()    
+    StartingAssistant_path = Common_path + "StartingAssistant.pyw"
+    WakeUpJarvis_path = Common_path + "WakeUpJarvis.pyw"
+    Listening_icon_path = Common_path + "Listening.png"
+    Recognizing_icon_path = Common_path + "Recognizing.png"
+    Ididnotget_icon_path = Common_path + "Ididnotget.png"
     
     Listening_image = Image.open(Listening_icon_path)
     Listening_icon = pystray.Icon("Listening")
@@ -218,9 +225,10 @@ if __name__ == "__main__":
     Ididnotget_icon.title = 'Jarvis'
     
     # You can change below paths so that they point to whatever you want
+    # These are the default paths
     chrome_path = "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe"
-    code_path = "Set this path"
-    anaconda_path = "Set this path"        
+    code_path = "C:\\Users\\dhruv\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe"
+    anaconda_path = "C:\\Users\\dhruv\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Anaconda3 (64-bit)\\Anaconda Navigator (anaconda3)"        
     
     while True:
         Listening_icon.visible = False

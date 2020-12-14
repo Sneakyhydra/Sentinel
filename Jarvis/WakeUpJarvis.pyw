@@ -1,4 +1,5 @@
-# Sorry, nothing to edit here
+# There's a comment before every line you would want to edit that tells how to edit them
+# A comment starts with "#"
 
 import pyttsx3
 import speech_recognition as sr
@@ -6,6 +7,7 @@ import os
 import pystray
 from PIL import Image
 from pystray import Menu, MenuItem
+import Jarvis
 
 engine = pyttsx3.init('sapi5')
 voices = engine.getProperty('voices')
@@ -38,10 +40,11 @@ def takeCommand():
     return query
 
 if __name__ == "__main__":
-    # Change these paths immediately     
-    WakeUpJarvis_icon_path = "path to WakeUpJarvis.png"
-    Jarvis_path = "path to Jarvis.pyw"
-    StartingAssistant_path = "path to StartingAssistant.pyw"
+    
+    Common_path = Jarvis.Common()
+    WakeUpJarvis_icon_path = Common_path + "WakeUpJarvis.png"
+    Jarvis_path = Common_path + "Jarvis.pyw"
+    StartingAssistant_path = Common_path + "StartingAssistant.pyw"
     
     WakeUpJarvis_image = Image.open(WakeUpJarvis_icon_path)
     WakeUpJarvis_icon = pystray.Icon("Listening")
@@ -50,6 +53,7 @@ if __name__ == "__main__":
     WakeUpJarvis_icon.title = 'Wake Up Jarvis'
 
     while True:
+        # You can change the voice commands according to your preference
         query = takeCommand().lower()
         if "close" in query:
             os.startfile(StartingAssistant_path)
