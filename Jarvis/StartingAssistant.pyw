@@ -18,7 +18,9 @@ COMBINATIONS = [
 # The currently active modifiers
 current = set()
 
-StartingAssistant_icon_path = "C:\\Users\\dhruv\\Desktop\\Code Playground\\Jarvis\\StartingAssistant.gif"
+# Change these paths immediately
+StartingAssistant_icon_path = "path to StartingAssistant.gif"
+Jarvis_path = "path to Jarvis.pyw
 
 StartingAssistant_image = Image.open(StartingAssistant_icon_path)
 StartingAssistant_icon = pystray.Icon("Listening")
@@ -32,7 +34,7 @@ def exit_action(icon):
     icon.visible = False
 
 def execute():
-    os.startfile("C:\\Users\\dhruv\\Desktop\\Code Playground\\Jarvis\\Jarvis.pyw")
+    os.startfile(Jarvis.pyw)
     StartingAssistant_icon.visible = False
     exit()
 
