@@ -192,9 +192,12 @@ def voiceCommands(query):
 
 if __name__ == "__main__":
 
-    Listening_icon_path = "C:\\Users\\dhruv\\Desktop\\Code Playground\\Jarvis\\Listening.png"
-    Recognizing_icon_path = "C:\\Users\\dhruv\\Desktop\\Code Playground\\Jarvis\\Recognizing.png"
-    Ididnotget_icon_path = "C:\\Users\\dhruv\\Desktop\\Code Playground\\Jarvis\\Ididnotget.png"
+    # Change these paths immediately, refer to chrome_path below
+    StartingAssistant_path = "path to StartingAssistant.pyw"
+    WakeUpJarvis_path = "path to WakeUpJarvis.pyw"
+    Listening_icon_path = "path to Listening.png"
+    Recognizing_icon_path = "path to Recognizing.png"
+    Ididnotget_icon_path = "path to Ididnotget.png"
     
     Listening_image = Image.open(Listening_icon_path)
     Listening_icon = pystray.Icon("Listening")
@@ -213,10 +216,6 @@ if __name__ == "__main__":
     Ididnotget_icon.menu = Menu(MenuItem('Exit', lambda : exit_action(Ididnotget_icon)),)
     Ididnotget_icon.icon = Ididnotget_image
     Ididnotget_icon.title = 'Jarvis'
-
-    # Change these paths immediately, refer to chrome_path below
-    StartingAssistant_path = "path to StartingAssistant.pyw"
-    WakeUpJarvis_path = "path to WakeUpJarvis.pyw"
     
     # You can change below paths so that they point to whatever you want
     chrome_path = "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe"
