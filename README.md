@@ -8,11 +8,7 @@ It uses Google speech recognition to convert speech to text.
 It requires Internet connection to recognize speech.  
 
 The offline alternative Pocket Sphinx is extremely inaccurate and needs to be trained.   
-It understands English-India
-
-My dream is to make this project into
-- A fully offline speech recognizing assistant
-- An AI Powered assistant  
+It understands English-India 
 
 ## Setup ##
 1. Install Latest Version of Python and add to path
