@@ -42,7 +42,7 @@ It understands English-India only
 1. the time
 2. who are you
 3. thank you
-4. 
+
 ### System Commands- ###
 1. shutdown
 - yes(will shutdown your computer or laptop)
