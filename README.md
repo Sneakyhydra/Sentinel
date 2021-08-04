@@ -14,9 +14,9 @@ It understands English-India only.
 3. Type pip install -r requirements.txt
 4. Type pipwin install pyaudio
 5. Create a Desktop Shortcut of "StartingAssistant.pyw" and "WishMe.pyw".
-6. Move both shortcuts to the startup folder
-  (1) Press win + r
-  (2) Type shell:startup
+6. Move both shortcuts to the startup folder  
+  (1) Press win + r  
+  (2) Type shell:startup  
   (3) Move Both the shortcuts to the startup folder
 7. Edit the "path" Variable in Jarvis.pyw on line 14
 8. Restart your pc
