@@ -50,9 +50,6 @@ It understands English-India only.
 - yes(will restart your computer or laptop)
 - anything else(will do nothing)
 
-### Close Jarvis ###
-1. close(closes jarvis and runs startingassistant script)
-
 ### StartingAssistant Shortcuts- ###
 #### There are no voice commands in this script ####
 "left shift + j" (runs jarvis if jarvis is not running and closes jarvis if jarvis is running)  
