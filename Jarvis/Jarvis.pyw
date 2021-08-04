@@ -66,8 +66,6 @@ def voiceCommands(query):
     try:
         # Open files
         if "close" == query:
-            # Open starting assistant
-            os.startfile(startingAssistant_path)
             exit()
 
         # Talk
