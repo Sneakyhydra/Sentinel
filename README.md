@@ -1,12 +1,12 @@
 # JARVIS #
 ## Voice Assistant ##
-This is a simple voice assistant made with python 3 using conditional statements.
-This is just a fun project.
+This is a simple voice assistant made with python 3 using conditional statements.  
+This is just a fun project.  
 
-It uses Microsoft's SAPI5 and the male voice that comes with windows to speak.
-It uses Google speech recognition to convert speech to text.
-It requires Internet connection to recognize speech.
-It understands English-India only.
+It uses Microsoft's SAPI5 and the male voice that comes with windows to speak.  
+It uses Google speech recognition to convert speech to text.  
+It requires Internet connection to recognize speech.  
+It understands English-India only.  
 
 ## Setup ##
 1. Install Latest Version of Python 3 and add to path
@@ -55,8 +55,8 @@ It understands English-India only.
 
 ### StartingAssistant Shortcuts- ###
 #### There are no voice commands in this script ####
-"left shift + j" (runs jarvis if jarvis is not running and closes jarvis if jarvis is running)
+"left shift + j" (runs jarvis if jarvis is not running and closes jarvis if jarvis is running)  
 
 ## System Tray Icons ##
-Green icon means Jarvis is running 
+Green icon means Jarvis is running  
 Black icon with stars means Jarvis is not running
