@@ -16,7 +16,7 @@ engine.setProperty('voice', voices[0].id)
 
 def Common():
     # Set the common path for all files
-    path = "Set this path immeadiately"
+    path = "Set this path immediately"
     return path
 
 
@@ -89,64 +89,43 @@ def voiceCommands(query):
             exit()
 
         # Talk
-        elif 'the time' in query:
+        elif 'time' == query:
             strTime = datetime.datetime.now().strftime("%H:%M")
             speak(f"Sir, the time is {strTime}")
 
-        elif 'who are you' in query:
+        elif 'who are you' == query:
             speak("I am Jarvis")
 
-        elif 'thank you' in query:
+        elif 'thank you' == query:
             speak("You're Welcome")
 
         # Open urls
-        elif 'open youtube' in query:
+        elif 'open youtube' == query:
             open_url("www.youtube.com")
 
-        elif 'open stack' in query:
+        elif 'openstack' == query:
             open_url("www.stackoverflow.com")
 
-        elif 'open udemy' in query:
+        elif 'open udemy' == query:
             open_url("https://www.udemy.com/home/my-courses/learning/")
 
-        elif 'open gmail' in query:
+        elif 'open gmail' == query:
             open_url("https://mail.google.com/mail/u/0/#inbox")
+        
+        elif 'open whatsapp' == query:
+            open_url("https:/web.whatsapp.com/")
 
         # Search
         # Search youtube
-        elif 'search youtube for' in query:
-            query = query.replace("search youtube for", "")
-            url = search_youtube(query)
-            url = url.replace(" ", "+")
-            open_url(url)
-
-        elif 'youtube for' in query:
-            query = query.replace("youtube for", "")
-            url = search_youtube(query)
-            url = url.replace(" ", "+")
-            open_url(url)
-
-        elif 'search youtube' in query:
-            query = query.replace("search youtube", "")
+        elif 'youtube ' in query:
+            query = query.replace("youtube ", "")
             url = search_youtube(query)
             url = url.replace(" ", "+")
             open_url(url)
 
         # Search google
-        elif 'search google for' in query:
-            query = query.replace("search google for", "")
-            url = search_google(query)
-            url = url.replace(" ", "+")
-            open_url(url)
-
-        elif 'google for' in query:
-            query = query.replace("google for", "")
-            url = search_google(query)
-            url = url.replace(" ", "+")
-            open_url(url)
-
-        elif 'search google' in query:
-            query = query.replace("search google", "")
+        elif 'google ' in query:
+            query = query.replace("google ", "")
             url = search_google(query)
             url = url.replace(" ", "+")
             open_url(url)
@@ -171,13 +150,13 @@ def voiceCommands(query):
                 pass
 
         # Launch apps
-        elif 'open chrome' in query:
+        elif 'open chrome' == query:
             os.startfile(chrome_path)
 
-        elif 'open code' in query:
+        elif 'open code' == query:
             os.startfile(code_path)
 
-        elif 'open anaconda' in query:
+        elif 'open anaconda' == query:
             os.startfile(anaconda_path)
 
         else:
@@ -223,8 +202,8 @@ if __name__ == "__main__":
 
     # Custom paths
     chrome_path = "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe"
-    code_path = "C:\\Users\\(username)\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe"
-    anaconda_path = "C:\\Users\\(username)\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Anaconda3 (64-bit)\\Anaconda Navigator (anaconda3)"
+    code_path = "C:\\Users\\{username}\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe"
+    anaconda_path = "C:\\Users\\{username}\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Anaconda3 (64-bit)\\Anaconda Navigator (anaconda3)"
 
     while True:
         Listening_icon.visible = False
