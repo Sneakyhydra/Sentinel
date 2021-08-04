@@ -64,12 +64,8 @@ def search_youtube(query):
 def voiceCommands(query):
     # Commands
     try:
-        # Open files
-        if "close" == query:
-            exit()
-
         # Talk
-        elif "time" == query:
+        if "time" == query:
             strTime = datetime.datetime.now().strftime("%H:%M")
             speak(f"Sir, the time is {strTime}")
 
