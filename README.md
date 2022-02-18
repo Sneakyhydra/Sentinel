@@ -23,37 +23,37 @@ It understands English-India only.
 
 ## Commands ##
 ### Open urls ###
-1. open youtube
-2. open stack
-3. open udemy
-4. open gmail
+1. Open youtube
+2. Open stack
+3. Open udemy
+4. Open gmail
 
 ### Launch apps ###
-1. open chrome(May need to edit path in Jarvis.pyw)
-2. open code(You need to edit path in Jarvis.pyw)
-3. open anaconda(You need to edit path in Jarvis.pyw)
+1. Open chrome (May need to edit path in Jarvis.pyw)
+2. Open code (You need to edit path in Jarvis.pyw)
+3. Open anaconda (You need to edit path in Jarvis.pyw)
 
 ### Search ###
-1. youtube "anything you want" (opens in default browser)
-2. google "anything you want" (opens in default browser)
+1. Youtube "anything you want" (opens in default browser)
+2. Google "anything you want" (opens in default browser)
 
 ### Talk ###
-1. time
-2. who are you
-3. thank you
+1. Time
+2. Who are you
+3. Thank you
 
 ### System Commands- ###
-1. shutdown
-- yes(will shutdown your computer or laptop)
-- anything else(will do nothing)
-2. restart
-- yes(will restart your computer or laptop)
-- anything else(will do nothing)
+1. Shutdown
+- Yes (will shutdown your computer or laptop)
+- Anything else (will do nothing)
+2. Restart
+- Yes (will restart your computer or laptop)
+- Anything else (will do nothing)
 
 ### StartingAssistant Shortcuts- ###
 #### There are no voice commands in this script ####
-"left shift + j" (runs jarvis if jarvis is not running and closes jarvis if jarvis is running)  
+"Left shift + j" (runs jarvis if jarvis is not running and closes jarvis if jarvis is running)  
 
 ## System Tray Icons ##
 Green icon means Jarvis is running  
-Black icon with stars means Jarvis is not running
+Black icon means Jarvis is not running
