@@ -12,7 +12,7 @@ engine.setProperty("voice", voices[0].id)
 def common():
     # Set the common path for all files
     # Example- path = "D:\\Coding\\Jarvis\\"
-    path = "Set this path immediately"
+    path = os.path.dirname(os.path.abspath(__file__))
     return path
 
 
