@@ -9,7 +9,7 @@ It understands English only.
 
 ## Setup
 
-1. Install Latest Version of Python 3 and add to path
+1. Install Latest Version of Python 3 (Preferably 3.9.9 but should work on 3.8-3.10) and add to path
 2. Open cmd-here.exe
 
 - If you have a GPU that supports CUDA toolkit then the performance can be increased.
