@@ -1,59 +1,59 @@
-# JARVIS #
-## Voice Assistant ##
+# JARVIS
+
+## Voice Assistant
+
 This is a simple voice assistant made with python 3 using conditional statements.  
-This is just a fun project.  
+This is just a fun project.
 
-It uses Microsoft's SAPI5 and the male voice that comes with windows to speak.  
-It uses Google speech recognition to convert speech to text.  
-It requires Internet connection to recognize speech.  
-It understands English-India only.  
+It uses OpenAI's Whisper to convert speech to text.  
+Speech Recognition is offline but online commands can be added.  
+It understands English only.
 
-## Setup ##
+## Setup
+
 1. Install Latest Version of Python 3 and add to path
 2. Open cmd-here.exe
-3. Type pip install -r requirements.txt
-4. Type pipwin install pyaudio
-5. Create a Desktop Shortcut of "StartingAssistant.pyw" and "WishMe.pyw".
-6. Move both shortcuts to the startup folder  
-  (1) Press win + r  
-  (2) Type shell:startup  
-  (3) Move Both the shortcuts to the startup folder
-7. Edit the "path" Variable in Jarvis.pyw on line 14
-8. Restart your pc
 
-## Commands ##
-### Open urls ###
+- If you have a GPU that supports CUDA toolkit then the performance can be increased.
+- Remove the # from the last line in the requirements.txt file.
+- NOTE: This will increase the download size by 2.0 GB.
+
+3. Type pip install -r requirements.txt
+4. Create a Desktop Shortcut of "StartingAssistant.py".
+5. Move the shortcut to the startup folder  
+   (1) Press win + r
+   (2) Type shell:startup  
+   (3) Move the shortcut to the startup folder
+6. Restart your pc
+
+- The program will download the "base.en" whisper model on the first launch (Approx. 140 MB).
+
+## Commands
+
+### Open urls
+
 1. Open youtube
 2. Open stack
 3. Open udemy
 4. Open gmail
 
-### Launch apps ###
-1. Open chrome (May need to edit path in Jarvis.pyw)
-2. Open code (You need to edit path in Jarvis.pyw)
-3. Open anaconda (You need to edit path in Jarvis.pyw)
+### Launch apps
 
-### Search ###
+1. Open chrome (You may need to edit path in Jarvis.py)
+2. Open code (You may need to edit path in Jarvis.py)
+3. Open anaconda (You may need to edit path in Jarvis.py)
+
+### Search
+
 1. Youtube "anything you want" (opens in default browser)
 2. Google "anything you want" (opens in default browser)
 
-### Talk ###
-1. Time
-2. Who are you
-3. Thank you
+### StartingAssistant Shortcuts-
 
-### System Commands- ###
-1. Shutdown
-- Yes (will shutdown your computer or laptop)
-- Anything else (will do nothing)
-2. Restart
-- Yes (will restart your computer or laptop)
-- Anything else (will do nothing)
+#### There are no voice commands in this script
 
-### StartingAssistant Shortcuts- ###
-#### There are no voice commands in this script ####
-"Left shift + j" (runs jarvis if jarvis is not running and closes jarvis if jarvis is running)  
+"l_shift + l_alt + l_ctrl" (starts listening for the voice command)
 
-## System Tray Icons ##
-Green icon means Jarvis is running  
-Black icon means Jarvis is not running
+## System Tray Icons
+
+Black icon means Starting Assistant is running
