@@ -1,39 +1,21 @@
-import pyttsx3
-import datetime
+# Imports
 import speech_recognition as sr
 import os
 import numpy as np
-import whisper
 import queue
 import torch
 
-# Pid
-f = open("pidJarvis.txt", "w")
-pid = str(os.getpid())
-f.write(pid)
-f.close()
-
-# Initialize voice
-engine = pyttsx3.init("sapi5")
-voices = engine.getProperty("voices")
-engine.setProperty("voice", voices[0].id)
-
-# Initialize whisper
-model = "tiny.en"
-audio_model = whisper.load_model(
-    model, download_root=f"{os.path.dirname(os.path.abspath(__file__))}/models")
+# Custom paths
+chrome_path = "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe"
+code_path = "C:\\Users\\{username}\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe"
+anaconda_path = "C:\\Users\\{username}\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Anaconda3 (64-bit)\\Anaconda Navigator (anaconda3)"
 
 
-def speak(audio):
-    engine.say(audio)
-    engine.runAndWait()
-
-
-def takeCommand():
+def takeCommand(audio_model, energy_threshold):
     r = sr.Recognizer()
-    # r.energy_threshold = 300
-    # r.pause_threshold = 0.65
-    # r.dynamic_energy_threshold = False
+    r.energy_threshold = energy_threshold
+    r.pause_threshold = 0.8
+    r.dynamic_energy_threshold = False
 
     audio_queue = queue.Queue()
     query = ""
@@ -73,19 +55,8 @@ def search_youtube(query):
 def voiceCommands(query):
     # Commands
     try:
-        # Talk
-        if "time" == query:
-            strTime = datetime.datetime.now().strftime("%H:%M")
-            speak(f"Sir, the time is {strTime}")
-
-        elif "who are you" == query:
-            speak("I am Jarvis")
-
-        elif "thank you" == query:
-            speak("You're Welcome")
-
         # Open urls
-        elif "open youtube" == query:
+        if "open youtube" == query:
             open_url("www.youtube.com")
 
         elif "open stack" == query:
@@ -102,37 +73,18 @@ def voiceCommands(query):
 
         # Search
         # Search youtube
-        elif "youtube " in query:
-            query = query.replace("youtube ", "")
+        elif "youtube " == query[:8]:
+            query = query[8:]
             url = search_youtube(query)
             url = url.replace(" ", "+")
             open_url(url)
 
         # Search google
-        elif "google " in query:
-            query = query.replace("google ", "")
+        elif "google " == query[:7]:
+            query = query[7:]
             url = search_google(query)
             url = url.replace(" ", "+")
             open_url(url)
-
-        # System commands
-        elif "shutdown" == query or "shut down" == query:
-            # Confirmation
-            speak("Do you want to shutdown your laptop?")
-            query = takeCommand().lower()
-            if "yes" == query:
-                os.system("shutdown /s /t 1")
-            else:
-                pass
-
-        elif "restart" == query or "reboot" == query:
-            # Confirmation
-            speak("Do you want to restart your laptop?")
-            query = takeCommand().lower()
-            if "yes" == query:
-                os.system("shutdown /r /t 1")
-            else:
-                pass
 
         # Launch apps
         elif "open chrome" == query:
@@ -148,26 +100,18 @@ def voiceCommands(query):
             pass
 
     except Exception:
-        speak("Not found")
+        pass
 
 
-# Custom paths
-chrome_path = "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe"
-code_path = "C:\\Users\\{username}\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe"
-anaconda_path = "C:\\Users\\{username}\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Anaconda3 (64-bit)\\Anaconda Navigator (anaconda3)"
+def main(audio_model, energy_threshold):
+    string = takeCommand(audio_model, energy_threshold)
 
+    query = ""
+    for char in string:
+        if char == ' ' or char.isalpha():
+            query += char
+    query = query.strip().lower()
 
-string = takeCommand().lower()
-
-query = ""
-for char in string:
-    if char == ' ' or char.isalpha():
-        query += char
-query = query.strip()
-
-if query != "":
-    print(query)
-    voiceCommands(query)
-
-if os.path.exists("pidJarvis.txt") == True:
-    os.remove("pidJarvis.txt")
+    if query != "":
+        print(query)
+        voiceCommands(query)

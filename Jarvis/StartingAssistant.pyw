@@ -3,20 +3,18 @@ import pystray
 from PIL import Image
 from pystray import Menu, MenuItem
 import os
-import subprocess as s
+import Jarvis
+import whisper
+import speech_recognition as sr
 
-# Key combinations
-combinations = [
-    {keyboard.Key.shift, keyboard.KeyCode(char="j")},
-    {keyboard.Key.shift, keyboard.KeyCode(char="J")}
-]
+model = "base.en"
+audio_model = whisper.load_model(
+    model, download_root=f"{os.path.dirname(os.path.abspath(__file__))}/models")
 
-current = set()
-
+# Paths
 common_path = os.path.dirname(os.path.abspath(__file__))
 startingAssistant_icon_path = common_path + "\\StartingAssistant.jpg"
 jarvis_path = common_path + "\\Jarvis.py"
-isJarvisRunning = False
 
 
 def exit_action(icon):
@@ -33,42 +31,34 @@ startingAssistant_icon.menu = Menu(
 startingAssistant_icon.icon = startingAssistant_image
 startingAssistant_icon.title = "Starting Assistant"
 
-startingAssistant_icon.run_detached()
+global r
+r = sr.Recognizer()
+with sr.Microphone() as source:
+    print("Please wait. Calibrating microphone...")
+    # listen for 5 seconds and calculate the ambient noise energy level
+    r.adjust_for_ambient_noise(source, duration=5)
+    print("Calibrated")
 
 
 def execute():
-    global isJarvisRunning
-    global jarvis_path
-
-    if isJarvisRunning == True:
-        isJarvisRunning = False
-
-        try:
-            if os.path.exists("pidJarvis.txt") == True:
-                f = open("pidJarvis.txt", "r")
-                pid = f.readline()
-                f.close()
-                os.remove("pidJarvis.txt")
-                s.Popen("taskkill /F /PID {0}".format(int(pid)), shell=True)
-        except Exception:
-            pass
-    else:
-        # Run Jarvis
-        os.startfile(jarvis_path)
-        isJarvisRunning = True
+    Jarvis.main(audio_model, r.energy_threshold)
 
 
-def on_press(key):
-    if any([key in combo for combo in combinations]):
-        current.add(key)
-        if any(all(k in current for k in combo) for combo in combinations):
-            execute()
+def setup(icon):
+    icon.visible = True
+
+    def for_canonical(f):
+        return lambda k: f(l.canonical(k))
+
+    hotkey = keyboard.HotKey(
+        keyboard.HotKey.parse('<ctrl>+<alt>+<shift>'),
+        execute)
+
+    with keyboard.Listener(
+        on_press=for_canonical(hotkey.press),
+        on_release=for_canonical(hotkey.release)
+    ) as l:
+        l.join()
 
 
-def on_release(key):
-    if any([key in combo for combo in combinations]):
-        current.remove(key)
-
-
-with keyboard.Listener(on_press=on_press, on_release=on_release) as listener:
-    listener.join()
+startingAssistant_icon.run(setup)
