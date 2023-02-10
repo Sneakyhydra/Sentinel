@@ -7,7 +7,7 @@ import Jarvis
 import whisper
 import speech_recognition as sr
 
-model = "base.en"
+model = "medium.en"
 audio_model = whisper.load_model(
     model, download_root=f"{os.path.dirname(os.path.abspath(__file__))}/models")
 
@@ -19,7 +19,6 @@ jarvis_path = common_path + "\\Jarvis.py"
 
 def exit_action(icon):
     icon.visible = False
-    icon.stop()
     os._exit(0)
 
 
