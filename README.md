@@ -22,10 +22,9 @@ It understands English only.
 - The program will download the "base.en" whisper model on the first launch (Approx. 140 MB).
 - Optional, if you want to launch the program at startup (For Windows).
   1. Create a Desktop Shortcut of "StartingAssistant.py".
-  2. Move the shortcut to the startup folder  
-     (1) Press win + r  
-     (2) Type shell:startup  
-     (3) Move the shortcut to the startup folder
+  2. Press win + r.
+  3. Type shell:startup and press enter.
+  4. Move the shortcut to the startup folder.
 
 ## Commands
 
