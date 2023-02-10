@@ -1,3 +1,4 @@
+setuptools-rust
 pynput
 pipwin
 pystray
