@@ -41,6 +41,11 @@ with sr.Microphone() as source:
 
 
 def execute():
+    vkeyboard = keyboard.Controller()
+    vkeyboard.release(keyboard.Key.ctrl)
+    vkeyboard.release(keyboard.Key.alt)
+    vkeyboard.release(keyboard.Key.shift)
+
     Jarvis.main(audio_model, r.energy_threshold)
 
 
