@@ -38,9 +38,11 @@ with sr.Microphone() as source:
     r.adjust_for_ambient_noise(source, duration=5)
     print("Calibrated")
 
+global vkeyboard
+vkeyboard = keyboard.Controller()
+
 
 def execute():
-    vkeyboard = keyboard.Controller()
     vkeyboard.release(keyboard.Key.ctrl)
     vkeyboard.release(keyboard.Key.alt)
     vkeyboard.release(keyboard.Key.shift)
