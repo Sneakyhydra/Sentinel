@@ -19,14 +19,15 @@ It understands English only.
 - NOTE: This will increase the download size by 2.0 GB.
 
 3. Type pip install -r requirements.txt
-4. Create a Desktop Shortcut of "StartingAssistant.py".
-5. Move the shortcut to the startup folder  
-   (1) Press win + r
-   (2) Type shell:startup  
-   (3) Move the shortcut to the startup folder
-6. Restart your pc
+4. Restart your pc
 
 - The program will download the "base.en" whisper model on the first launch (Approx. 140 MB).
+- Optional, if you want to launch the program at startup.
+  1. Create a Desktop Shortcut of "StartingAssistant.py".
+  2. Move the shortcut to the startup folder  
+     (1) Press win + r
+     (2) Type shell:startup  
+     (3) Move the shortcut to the startup folder
 
 ## Commands
 
