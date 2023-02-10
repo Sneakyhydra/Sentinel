@@ -1,0 +1,173 @@
+import pyttsx3
+import datetime
+import speech_recognition as sr
+import os
+import numpy as np
+import whisper
+import queue
+import torch
+
+# Pid
+f = open("pidJarvis.txt", "w")
+pid = str(os.getpid())
+f.write(pid)
+f.close()
+
+# Initialize voice
+engine = pyttsx3.init("sapi5")
+voices = engine.getProperty("voices")
+engine.setProperty("voice", voices[0].id)
+
+# Initialize whisper
+model = "tiny.en"
+audio_model = whisper.load_model(
+    model, download_root=f"{os.path.dirname(os.path.abspath(__file__))}/models")
+
+
+def speak(audio):
+    engine.say(audio)
+    engine.runAndWait()
+
+
+def takeCommand():
+    r = sr.Recognizer()
+    # r.energy_threshold = 300
+    # r.pause_threshold = 0.65
+    # r.dynamic_energy_threshold = False
+
+    audio_queue = queue.Queue()
+    query = ""
+
+    with sr.Microphone(sample_rate=16000) as source:
+        audio = r.listen(source)
+
+        audio_data = torch.from_numpy(np.frombuffer(
+            audio.get_raw_data(), np.int16).flatten().astype(np.float32) / 32768.0)
+
+        audio_queue.put(audio_data)
+
+    audio_data = audio_queue.get()
+    result = audio_model.transcribe(audio_data, language='english')
+    query = result["text"]
+
+    return query
+
+
+def open_url(url):
+    # Opens an url
+    os.system(f"start \"\" {url}")
+
+
+def search_google(query):
+    # Search google
+    url = f"https://www.google.com/search?q={query}"
+    return url
+
+
+def search_youtube(query):
+    # Search youtube
+    url = f"https://www.youtube.com/results?search_query={query}"
+    return url
+
+
+def voiceCommands(query):
+    # Commands
+    try:
+        # Talk
+        if "time" == query:
+            strTime = datetime.datetime.now().strftime("%H:%M")
+            speak(f"Sir, the time is {strTime}")
+
+        elif "who are you" == query:
+            speak("I am Jarvis")
+
+        elif "thank you" == query:
+            speak("You're Welcome")
+
+        # Open urls
+        elif "open youtube" == query:
+            open_url("www.youtube.com")
+
+        elif "open stack" == query:
+            open_url("www.stackoverflow.com")
+
+        elif "open udemy" == query:
+            open_url("https://www.udemy.com/home/my-courses/learning/")
+
+        elif "open gmail" == query:
+            open_url("https://mail.google.com/mail/u/0/#inbox")
+
+        elif "open whatsapp" == query:
+            open_url("https:/web.whatsapp.com/")
+
+        # Search
+        # Search youtube
+        elif "youtube " in query:
+            query = query.replace("youtube ", "")
+            url = search_youtube(query)
+            url = url.replace(" ", "+")
+            open_url(url)
+
+        # Search google
+        elif "google " in query:
+            query = query.replace("google ", "")
+            url = search_google(query)
+            url = url.replace(" ", "+")
+            open_url(url)
+
+        # System commands
+        elif "shutdown" == query or "shut down" == query:
+            # Confirmation
+            speak("Do you want to shutdown your laptop?")
+            query = takeCommand().lower()
+            if "yes" == query:
+                os.system("shutdown /s /t 1")
+            else:
+                pass
+
+        elif "restart" == query or "reboot" == query:
+            # Confirmation
+            speak("Do you want to restart your laptop?")
+            query = takeCommand().lower()
+            if "yes" == query:
+                os.system("shutdown /r /t 1")
+            else:
+                pass
+
+        # Launch apps
+        elif "open chrome" == query:
+            os.startfile(chrome_path)
+
+        elif "open code" == query:
+            os.startfile(code_path)
+
+        elif "open anaconda" == query:
+            os.startfile(anaconda_path)
+
+        else:
+            pass
+
+    except Exception:
+        speak("Not found")
+
+
+# Custom paths
+chrome_path = "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe"
+code_path = "C:\\Users\\{username}\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe"
+anaconda_path = "C:\\Users\\{username}\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Anaconda3 (64-bit)\\Anaconda Navigator (anaconda3)"
+
+
+string = takeCommand().lower()
+
+query = ""
+for char in string:
+    if char == ' ' or char.isalpha():
+        query += char
+query = query.strip()
+
+if query != "":
+    print(query)
+    voiceCommands(query)
+
+if os.path.exists("pidJarvis.txt") == True:
+    os.remove("pidJarvis.txt")

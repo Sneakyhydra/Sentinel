@@ -1,11 +1,9 @@
 from pynput import keyboard
-import os
 import pystray
 from PIL import Image
 from pystray import Menu, MenuItem
+import os
 import subprocess as s
-import psutil
-import Jarvis
 
 # Key combinations
 combinations = [
@@ -15,14 +13,19 @@ combinations = [
 
 current = set()
 
-# Paths
-common_path = Jarvis.common()
-startingAssistant_icon_path = common_path + "StartingAssistant.jpg"
-jarvis_icon_path = common_path + "Jarvis.png"
-jarvis_path = common_path + "Jarvis.pyw"
+common_path = os.path.dirname(os.path.abspath(__file__))
+startingAssistant_icon_path = common_path + "\\StartingAssistant.jpg"
+jarvis_path = common_path + "\\Jarvis.py"
+isJarvisRunning = False
+
+
+def exit_action(icon):
+    icon.visible = False
+    icon.stop()
+    os._exit(0)
+
 
 # System tray icon
-# Starting Assistant
 startingAssistant_image = Image.open(startingAssistant_icon_path)
 startingAssistant_icon = pystray.Icon("Listening")
 startingAssistant_icon.menu = Menu(
@@ -30,43 +33,29 @@ startingAssistant_icon.menu = Menu(
 startingAssistant_icon.icon = startingAssistant_image
 startingAssistant_icon.title = "Starting Assistant"
 
-# Jarvis
-jarvis_image = Image.open(jarvis_icon_path)
-jarvis_icon = pystray.Icon("Listening")
-jarvis_icon.menu = Menu(
-    MenuItem("Exit", lambda: exit_action(jarvis_icon)),)
-jarvis_icon.icon = jarvis_image
-jarvis_icon.title = "Jarvis"
-
-startingAssistant_icon.visible = True
-
-
-def exit_action(icon):
-    icon.visible = False
+startingAssistant_icon.run_detached()
 
 
 def execute():
-    if os.path.isfile("pidJarvis.txt"):
-        f = open("pidJarvis.txt", "r")
-        pid = f.readline()
-        f.close()
-        os.remove("pidJarvis.txt")
+    global isJarvisRunning
+    global jarvis_path
 
-        if psutil.pid_exists(int(pid)):
-            s.Popen("taskkill /F /PID {0}".format(int(pid)), shell=True)
-            startingAssistant_icon.visible = True
-            jarvis_icon.visible = False
+    if isJarvisRunning == True:
+        isJarvisRunning = False
 
-        else:
-            os.startfile(jarvis_path)
-            startingAssistant_icon.visible = False
-            jarvis_icon.visible = True
-
+        try:
+            if os.path.exists("pidJarvis.txt") == True:
+                f = open("pidJarvis.txt", "r")
+                pid = f.readline()
+                f.close()
+                os.remove("pidJarvis.txt")
+                s.Popen("taskkill /F /PID {0}".format(int(pid)), shell=True)
+        except Exception:
+            pass
     else:
         # Run Jarvis
         os.startfile(jarvis_path)
-        startingAssistant_icon.visible = False
-        jarvis_icon.visible = True
+        isJarvisRunning = True
 
 
 def on_press(key):
