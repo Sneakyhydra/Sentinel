@@ -23,7 +23,7 @@ It understands English only.
 - Optional, if you want to launch the program at startup (For Windows).
   1. Create a Desktop Shortcut of "StartingAssistant.py".
   2. Move the shortcut to the startup folder  
-     (1) Press win + r
+     (1) Press win + r  
      (2) Type shell:startup  
      (3) Move the shortcut to the startup folder
 
