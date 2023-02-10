@@ -7,7 +7,7 @@ import Jarvis
 import whisper
 import speech_recognition as sr
 
-model = "medium.en"
+model = "base.en"
 audio_model = whisper.load_model(
     model, download_root=f"{os.path.dirname(os.path.abspath(__file__))}/models")
 
