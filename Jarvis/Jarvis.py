@@ -6,9 +6,10 @@ import queue
 import torch
 
 # Custom paths
+username = os.getlogin()
 chrome_path = "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe"
-code_path = "C:\\Users\\{username}\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe"
-anaconda_path = "C:\\Users\\{username}\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Anaconda3 (64-bit)\\Anaconda Navigator (anaconda3)"
+code_path = f"C:\\Users\\{username}\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe"
+anaconda_path = f"C:\\Users\\{username}\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Anaconda3 (64-bit)\\Anaconda Navigator (anaconda3)"
 
 
 def takeCommand(audio_model, energy_threshold):
