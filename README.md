@@ -2,9 +2,7 @@
 
 ## Voice Assistant
 
-This is a simple voice assistant made with python 3 using conditional statements.  
-This is just a fun project.
-
+Voice assistant made with python 3.
 It uses OpenAI's Whisper to convert speech to text.  
 Speech Recognition is offline but online commands can be added.  
 It understands English only.
