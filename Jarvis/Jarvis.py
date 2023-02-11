@@ -5,7 +5,7 @@ import numpy as np
 import queue
 import torch
 import whisper
-
+import webbrowser
 
 global audio_model
 model = "base.en"
@@ -46,7 +46,7 @@ def takeCommand(energy_threshold):
 
 def open_url(url):
     # Opens an url
-    os.system(f"start \"\" {url}")
+    webbrowser.open_new_tab(url)
 
 
 def search_google(query):
@@ -66,10 +66,10 @@ def voiceCommands(query):
     try:
         # Open urls
         if "open youtube" == query:
-            open_url("www.youtube.com")
+            open_url("https://www.youtube.com")
 
         elif "open stack" == query:
-            open_url("www.stackoverflow.com")
+            open_url("https://www.stackoverflow.com")
 
         elif "open udemy" == query:
             open_url("https://www.udemy.com/home/my-courses/learning/")
@@ -78,7 +78,7 @@ def voiceCommands(query):
             open_url("https://mail.google.com/mail/u/0/#inbox")
 
         elif "open whatsapp" == query:
-            open_url("https:/web.whatsapp.com/")
+            open_url("https://web.whatsapp.com/")
 
         # Search
         # Search youtube

@@ -1,6 +1,6 @@
 setuptools-rust
+wheel
 pynput
-pipwin
 pystray
 psutil
 numpy
