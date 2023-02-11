@@ -4,12 +4,21 @@ from PIL import Image
 from pystray import Menu, MenuItem
 import os
 import Jarvis
-import whisper
 import speech_recognition as sr
+import win32.win32gui as win32gui
+import win32.lib.win32con as win32con
 
-model = "base.en"
-audio_model = whisper.load_model(
-    model, download_root=f"{os.path.dirname(os.path.abspath(__file__))}/models")
+global r
+r = sr.Recognizer()
+with sr.Microphone() as source:
+    print("Please wait. Calibrating microphone...")
+    # listen for 5 seconds and calculate the ambient noise energy level
+    r.adjust_for_ambient_noise(source, duration=5)
+    print("Calibrated")
+
+# Hide the window
+window = win32gui.GetForegroundWindow()
+win32gui.ShowWindow(window, win32con.SW_HIDE)
 
 # Paths
 common_path = os.path.dirname(os.path.abspath(__file__))
@@ -30,13 +39,6 @@ startingAssistant_icon.menu = Menu(
 startingAssistant_icon.icon = startingAssistant_image
 startingAssistant_icon.title = "Starting Assistant"
 
-global r
-r = sr.Recognizer()
-with sr.Microphone() as source:
-    print("Please wait. Calibrating microphone...")
-    # listen for 5 seconds and calculate the ambient noise energy level
-    r.adjust_for_ambient_noise(source, duration=5)
-    print("Calibrated")
 
 global vkeyboard
 vkeyboard = keyboard.Controller()
@@ -47,7 +49,7 @@ def execute():
     vkeyboard.release(keyboard.Key.alt)
     vkeyboard.release(keyboard.Key.shift)
 
-    Jarvis.main(audio_model, r.energy_threshold)
+    Jarvis.main(r.energy_threshold)
 
 
 def setup(icon):

@@ -4,6 +4,14 @@ import os
 import numpy as np
 import queue
 import torch
+import whisper
+
+
+global audio_model
+model = "base.en"
+audio_model = whisper.load_model(
+    model, download_root=f"{os.path.dirname(os.path.abspath(__file__))}/models")
+
 
 # Custom paths
 username = os.getlogin()
@@ -12,7 +20,7 @@ code_path = f"C:\\Users\\{username}\\AppData\\Local\\Programs\\Microsoft VS Code
 anaconda_path = f"C:\\Users\\{username}\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Anaconda3 (64-bit)\\Anaconda Navigator (anaconda3)"
 
 
-def takeCommand(audio_model, energy_threshold):
+def takeCommand(energy_threshold):
     r = sr.Recognizer()
     r.energy_threshold = energy_threshold
     r.pause_threshold = 0.8
@@ -104,8 +112,8 @@ def voiceCommands(query):
         pass
 
 
-def main(audio_model, energy_threshold):
-    string = takeCommand(audio_model, energy_threshold)
+def main(energy_threshold):
+    string = takeCommand(energy_threshold)
 
     query = ""
     for char in string:
