@@ -1,19 +1,19 @@
+import recognizer
+import threading
+import time
+import os
+from pystray import Menu, MenuItem
+from PIL import Image
+import pystray
+import speech_recognition as sr
+from pynput import keyboard
+import atexit
 import win32.win32gui as win32gui
 import win32.lib.win32con as win32con
 
 global window
 window = win32gui.GetForegroundWindow()
 
-import atexit
-from pynput import keyboard
-import speech_recognition as sr
-import pystray
-from PIL import Image
-from pystray import Menu, MenuItem
-import os
-import time
-import threading
-import recognizer
 
 global hidden
 hidden = True
@@ -98,7 +98,14 @@ def setup(icon):
 
     atexit.register(exit_action, icon)
     calibrate()
-    hide_window()
+
+    print("Sentinel is running. Press Ctrl+Alt+Q to quit.")
+    print()
+    print("--------------------")
+    # Command hotkeys
+    print("Press Ctrl+Alt+C to calibrate microphone.")
+    print("Press Ctrl+Alt+S to toggle window visibility.")
+    print("Press Ctrl+Alt+Shift to execute a command.")
 
     with keyboard.GlobalHotKeys({
         '<ctrl>+<alt>+<shift>': execute,
