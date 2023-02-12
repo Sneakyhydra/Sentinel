@@ -3,10 +3,10 @@ import pystray
 from PIL import Image
 from pystray import Menu, MenuItem
 import os
-import Jarvis
+import recognizer
 import speech_recognition as sr
-# import win32.win32gui as win32gui
-# import win32.lib.win32con as win32con
+import win32.win32gui as win32gui
+import win32.lib.win32con as win32con
 
 global r
 r = sr.Recognizer()
@@ -17,8 +17,8 @@ with sr.Microphone() as source:
     print("Calibrated")
 
 # Hide the window
-# window = win32gui.GetForegroundWindow()
-# win32gui.ShowWindow(window, win32con.SW_HIDE)
+window = win32gui.GetForegroundWindow()
+win32gui.ShowWindow(window, win32con.SW_HIDE)
 
 
 def exit_action(icon):
@@ -27,14 +27,14 @@ def exit_action(icon):
 
 
 # System tray icon
-startingAssistant_icon_path = os.path.dirname(
-    os.path.abspath(__file__)) + "/StartingAssistant.jpg"
-startingAssistant_image = Image.open(startingAssistant_icon_path)
-startingAssistant_icon = pystray.Icon("Listening")
-startingAssistant_icon.menu = Menu(
-    MenuItem("Exit", lambda: exit_action(startingAssistant_icon)),)
-startingAssistant_icon.icon = startingAssistant_image
-startingAssistant_icon.title = "Starting Assistant"
+assistant_logo_path = os.path.dirname(
+    os.path.abspath(__file__)) + "\\assets\\images\\logo.jpg"
+assistant_logo = Image.open(assistant_logo_path)
+assistant_icon = pystray.Icon("Assistant")
+assistant_icon.menu = Menu(
+    MenuItem("Exit", lambda: exit_action(assistant_icon)),)
+assistant_icon.icon = assistant_logo
+assistant_icon.title = "Assistant"
 
 
 global vkeyboard
@@ -42,7 +42,7 @@ vkeyboard = keyboard.Controller()
 
 
 def quit_program():
-    startingAssistant_icon.visible = False
+    assistant_icon.visible = False
     os._exit(0)
 
 
@@ -51,7 +51,7 @@ def execute():
     vkeyboard.release(keyboard.Key.alt)
     vkeyboard.release(keyboard.Key.shift)
 
-    Jarvis.main(r.energy_threshold)
+    recognizer.main(r.energy_threshold)
 
 
 def setup(icon):
@@ -63,4 +63,4 @@ def setup(icon):
         h.join()
 
 
-startingAssistant_icon.run(setup)
+assistant_icon.run(setup)

@@ -4,13 +4,13 @@ import os
 import numpy as np
 import queue
 import torch
-import whisper
+from assets.lib import whisper
 import webbrowser
 
 global audio_model
 model = "base.en"
 audio_model = whisper.load_model(
-    model, download_root=f"{os.path.dirname(os.path.abspath(__file__))}/models")
+    model, download_root=f"{os.path.dirname(os.path.abspath(__file__))}/assets/models")
 
 
 # Custom paths
@@ -65,7 +65,7 @@ def voiceCommands(query):
     # Commands
     try:
         # Open urls
-        if "open youtube" == query:
+        if "open youtube" == query or "open you tube" == query or "open your tube" == query:
             open_url("https://www.youtube.com")
 
         elif "open stack" == query:
@@ -122,5 +122,4 @@ def main(energy_threshold):
     query = query.strip().lower()
 
     if query != "":
-        print(query)
         voiceCommands(query)

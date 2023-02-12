@@ -1,5 +1,6 @@
-setuptools-rust
 wheel
+pyttsx3
+setuptools-rust
 pynput
 pystray
 psutil
@@ -12,7 +13,6 @@ click
 pyaudio
 SpeechRecognition
 pydub
-git+https://github.com/openai/whisper.git
 torch
 torchvision
 torchaudio
