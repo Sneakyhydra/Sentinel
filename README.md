@@ -21,14 +21,8 @@ You can get the latest build from the releases section.
    2. Type .\env\Scripts\Activate.ps1
    - Note : On Windows, it may be required to enable the Activate.ps1 script by setting the execution policy for the user. You can do this by issuing the following command: Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
 4. Type pip install -r requirements.txt
-5. Comment out lines 20 and 21 in assistant.py.
 
 - The program will download the "base.en" whisper model on the first launch (Approx. 140 MB).
-- Optional, if you want to launch the program at startup (For Windows).
-  1. Create a Desktop Shortcut of "assistant.py".
-  2. Press win + r.
-  3. Type shell:startup and press enter.
-  4. Move the shortcut to the startup folder.
 
 ## Build
 
@@ -60,8 +54,7 @@ You can get the latest build from the releases section.
 
 ### Shortcut to start listening for command-
 
-"l_shift + l_alt + l_ctrl" (starts listening for the voice command)
-
-## System Tray Icons
-
-Black icon means Sentinel is running
+"l_ctrl + l_alt + l_shift" (starts listening for the voice command)
+"l_ctrl + l_alt + q" (Closes the app)
+"l_ctrl + l_alt + c" (Calibrate the microphone)
+"l_ctrl + l_alt + s" (Toggle the window)
