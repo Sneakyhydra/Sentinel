@@ -1,4 +1,4 @@
-# Voice Assistant
+# Project Sentinel
 
 Voice assistant made with python 3 for Windows.  
 It uses OpenAI's Whisper to convert speech to text.  
@@ -57,4 +57,4 @@ You can get the latest build from the releases section.
 
 ## System Tray Icons
 
-Black icon means Assistant is running
+Black icon means Sentinel is running
