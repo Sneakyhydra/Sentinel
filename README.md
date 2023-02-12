@@ -54,7 +54,7 @@ You can get the latest build from the releases section.
 
 ### Shortcut to start listening for command-
 
-"l_ctrl + l_alt + l_shift" (starts listening for the voice command)
-"l_ctrl + l_alt + q" (Closes the app)
-"l_ctrl + l_alt + c" (Calibrate the microphone)
+"l_ctrl + l_alt + l_shift" (starts listening for the voice command)  
+"l_ctrl + l_alt + q" (Closes the app)  
+"l_ctrl + l_alt + c" (Calibrate the microphone)  
 "l_ctrl + l_alt + s" (Toggle the window)
