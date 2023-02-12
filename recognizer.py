@@ -38,7 +38,7 @@ def takeCommand(energy_threshold):
         audio_queue.put(audio_data)
 
     audio_data = audio_queue.get()
-    result = audio_model.transcribe(audio_data, language='english')
+    result = audio_model.transcribe(audio_data, language='english', fp16=False)
     query = result["text"]
 
     return query
