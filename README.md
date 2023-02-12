@@ -2,22 +2,27 @@
 
 ## Voice Assistant
 
-Voice assistant made with python 3.  
+Voice assistant made with python 3 for Windows.  
 It uses OpenAI's Whisper to convert speech to text.  
 Speech Recognition is offline but online commands can be added.  
 It understands English only.
 
-## Setup
+You can get the latest build from the releases section.
+
+## Development Environment Setup
 
 1. Install Latest Version of Python 3 (Preferably 3.9.9 but should work on 3.8-3.10) and add to path
-2. Open cmd-here.exe
+2. Open terminal in the project directory.
 
 - If you have a GPU that supports CUDA toolkit then the performance can be increased.
 - Remove the # from the last line in the requirements.txt file.
-- NOTE: This will increase the download size by 2.0 GB.
+- NOTE: This will increase the download size by approx 2.0 GB.
 
-3. Type pip install -r requirements.txt
-4. Restart your pc
+3. Create a virtual environment (Optional but Recommended)
+   1. Type python -m venv env.
+   2. Type .\env\Scripts\Activate.ps1
+   - Note : On Windows, it may be required to enable the Activate.ps1 script by setting the execution policy for the user. You can do this by issuing the following command: Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+4. Type pip install -r requirements.txt
 
 - The program will download the "base.en" whisper model on the first launch (Approx. 140 MB).
 - Optional, if you want to launch the program at startup (For Windows).
@@ -34,6 +39,7 @@ It understands English only.
 2. Open stack
 3. Open udemy
 4. Open gmail
+5. Open whatsapp
 
 ### Launch apps
 
