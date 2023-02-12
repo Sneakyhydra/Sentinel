@@ -16,7 +16,7 @@ window = win32gui.GetForegroundWindow()
 
 
 global hidden
-hidden = True
+hidden = False
 global vkeyboard
 vkeyboard = keyboard.Controller()
 global r
