@@ -30,6 +30,13 @@ You can get the latest build from the releases section.
   3. Type shell:startup and press enter.
   4. Move the shortcut to the startup folder.
 
+## Build
+
+1. Install pyinstaller
+2. Open terminal in the project directory.
+3. Type pyinstaller .\Sentinel.spec
+4. Application is built in the dist folder.
+
 ## Commands
 
 ### Open urls

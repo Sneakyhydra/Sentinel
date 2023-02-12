@@ -13,7 +13,6 @@ datas += copy_metadata('numpy')
 datas += copy_metadata('more-itertools')
 datas += copy_metadata('transformers')
 
-
 block_cipher = None
 
 
@@ -39,7 +38,7 @@ exe = EXE(
     a.scripts,
     [],
     exclude_binaries=True,
-    name='assistant',
+    name='Sentinel',
     debug=False,
     bootloader_ignore_signals=False,
     strip=False,
@@ -50,6 +49,7 @@ exe = EXE(
     target_arch=None,
     codesign_identity=None,
     entitlements_file=None,
+    icon=['assets\\images\\logo.ico'],
 )
 coll = COLLECT(
     exe,
@@ -59,5 +59,5 @@ coll = COLLECT(
     strip=False,
     upx=True,
     upx_exclude=[],
-    name='assistant',
+    name='Sentinel',
 )
