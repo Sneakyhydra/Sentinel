@@ -122,4 +122,5 @@ def main(energy_threshold):
     query = query.strip().lower()
 
     if query != "":
+        print(query)
         voiceCommands(query)
