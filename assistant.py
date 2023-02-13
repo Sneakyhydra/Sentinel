@@ -1,3 +1,9 @@
+import win32.win32gui as win32gui
+import win32.lib.win32con as win32con
+
+global window
+window = win32gui.GetForegroundWindow()
+
 import recognizer
 import threading
 import time
@@ -8,12 +14,6 @@ import pystray
 import speech_recognition as sr
 from pynput import keyboard
 import atexit
-import win32.win32gui as win32gui
-import win32.lib.win32con as win32con
-
-global window
-window = win32gui.GetForegroundWindow()
-
 
 global hidden
 hidden = False
