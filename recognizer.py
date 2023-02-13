@@ -8,7 +8,7 @@ from assets.lib import whisper
 import webbrowser
 
 global audio_model
-model = "small.en"
+model = "base.en"
 audio_model = whisper.load_model(
     model, download_root=f"{os.path.dirname(os.path.abspath(__file__))}/assets/models")
 
