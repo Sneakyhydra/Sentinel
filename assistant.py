@@ -96,7 +96,7 @@ def execute():
 def setup(icon):
     icon.visible = True
 
-    toggle_window()
+    # toggle_window()
     atexit.register(exit_action, icon)
     calibrate()
 
