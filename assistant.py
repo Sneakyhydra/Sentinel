@@ -14,6 +14,12 @@ import pystray
 import speech_recognition as sr
 from pynput import keyboard
 import atexit
+from assets.lib import whisper
+
+global audio_model
+model = "base.en"
+audio_model = whisper.load_model(
+    model, download_root=f"{os.path.dirname(os.path.abspath(__file__))}\\assets\\models")
 
 global hidden
 hidden = False
@@ -83,7 +89,7 @@ def exit_action(icon):
 
 def execute():
     threading.Thread(target=recognizer.main,
-                     args=(r.energy_threshold,)).start()
+                     args=(r.energy_threshold, audio_model)).start()
 
     vkeyboard.release(keyboard.Key.ctrl)
     time.sleep(0.1)

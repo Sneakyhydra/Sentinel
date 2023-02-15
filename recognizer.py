@@ -4,13 +4,10 @@ import os
 import numpy as np
 import queue
 import torch
-from assets.lib import whisper
 import webbrowser
-
-global audio_model
-model = "base.en"
-audio_model = whisper.load_model(
-    model, download_root=f"{os.path.dirname(os.path.abspath(__file__))}/assets/models")
+import tkinter as tk
+from win32api import GetMonitorInfo, MonitorFromPoint
+import threading
 
 
 # Custom paths
@@ -20,7 +17,7 @@ code_path = f"C:\\Users\\{username}\\AppData\\Local\\Programs\\Microsoft VS Code
 anaconda_path = f"C:\\Users\\{username}\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Anaconda3 (64-bit)\\Anaconda Navigator (anaconda3)"
 
 
-def takeCommand(energy_threshold):
+def takeCommand(energy_threshold, audio_model):
     r = sr.Recognizer()
     r.energy_threshold = energy_threshold
     r.pause_threshold = 0.8
@@ -112,8 +109,8 @@ def voiceCommands(query):
         pass
 
 
-def main(energy_threshold):
-    string = takeCommand(energy_threshold)
+def run(energy_threshold, audio_model, string_queue):
+    string = takeCommand(energy_threshold, audio_model)
 
     query = ""
     for char in string:
@@ -121,6 +118,108 @@ def main(energy_threshold):
             query += char
     query = query.strip().lower()
 
+    string_queue.put(query)
+
     if query != "":
-        print(query)
         voiceCommands(query)
+
+def main(energy_threshold, audio_model):
+    monitor_info = GetMonitorInfo(MonitorFromPoint((0,0)))
+    monitor_area = monitor_info.get("Monitor")
+    work_area = monitor_info.get("Work")
+    th = monitor_area[3]-work_area[3]
+
+    root : tk.Tk
+    root = tk.Tk()
+    root.configure(background='#292929')
+    root.attributes('-alpha', 0.8)
+
+    root.overrideredirect(True)
+    root.wm_attributes('-topmost', True)
+    root.wm_attributes('-toolwindow', True)
+
+    ws = root.winfo_screenwidth() # width of the screen
+    hs = root.winfo_screenheight() # height of the screen
+    w = ws/5 # width of the window
+    h = hs/15 # height of the window
+    x = ws - w # x coordinate
+    y = hs - h - th # y coordinate (40 is the height of the taskbar)
+    root.geometry('%dx%d+%d+%d' % (w, h, x, y))
+
+    # Create a Canvas widget with a red background
+    canvas = tk.Canvas(root, bg="#292929", highlightthickness=0, highlightcolor="#292929", highlightbackground="#292929", width=w, height=h)
+    canvas.pack(fill="both", expand=True)
+
+    # Get the size of the canvas
+    canvas_width = w
+    canvas_height = h
+
+    # Add a text label to the canvas
+    text_item : tk.Canvas
+    text_item = canvas.create_text(canvas_width/10, canvas_height/1.65, text="Listening . . .", fill="white", font=("Helvetica", 12, "bold"), anchor="w")
+
+    string_queue = queue.Queue()
+    string_queue.put("Listening .")
+    string_queue.put("Listening . .")
+    string_queue.put("Listening . . .")
+
+    # Define the function to animate the text
+    def animate_text(cnt, string_queue=string_queue):
+        text = string_queue.get()
+
+        if(text != "Listening ."):
+            while not string_queue.empty():
+                # remove all items in the queue
+                string_queue.get()
+            cnt += 1
+
+        if(cnt == 5):
+            root.quit()
+            exit()
+
+        string_queue.put(text)
+        canvas.itemconfigure(text_item, text=text)
+        root.after(300, animate_text2, cnt)
+
+    def animate_text2(cnt, string_queue=string_queue):
+        text = string_queue.get()
+
+        if(text != "Listening . ."):
+            while not string_queue.empty():
+                # remove all items in the queue
+                string_queue.get()
+            cnt += 1
+
+        if(cnt == 5):
+            root.quit()
+            exit()
+
+        string_queue.put(text)
+        canvas.itemconfigure(text_item, text=text)
+        root.after(300, animate_text3, cnt)
+
+    def animate_text3(cnt, string_queue=string_queue):
+        text = string_queue.get()
+
+        if(text != "Listening . . ."):
+            while not string_queue.empty():
+                # remove all items in the queue
+                string_queue.get()
+            cnt += 1
+
+        if(cnt == 5):
+            root.quit()
+            exit()
+
+        string_queue.put(text)
+        canvas.itemconfigure(text_item, text=text)
+        root.after(300, animate_text, cnt)
+
+    cnt = 0
+    root.after(300, animate_text, cnt)
+
+    threading.Thread(target=run, args=(energy_threshold, audio_model, string_queue)).start()
+
+    root.mainloop()
+
+    
