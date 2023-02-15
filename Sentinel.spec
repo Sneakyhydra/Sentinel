@@ -1,7 +1,7 @@
 # -*- mode: python ; coding: utf-8 -*-
 from PyInstaller.utils.hooks import copy_metadata
 
-datas = [('./assets/images', './assets/images'), ('./assets/lib', './assets/lib')]
+datas = [('./assets/images', './assets/images'), ('./assets/lib', './assets/lib'), ('./assets/models/base.en.pt', './assets/models')]
 datas += copy_metadata('tqdm')
 datas += copy_metadata('regex')
 datas += copy_metadata('requests')
