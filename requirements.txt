@@ -1,5 +1,6 @@
 wheel
 pyttsx3
+pywin32
 setuptools-rust
 pynput
 pystray
