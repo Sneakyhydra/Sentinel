@@ -21,6 +21,7 @@ You can get the latest build from the releases section.
    2. Type .\env\Scripts\Activate.ps1
    - Note : On Windows, it may be required to enable the Activate.ps1 script by setting the execution policy for the user. You can do this by issuing the following command: Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
 4. Type pip install -r requirements.txt
+5. "assistant.py" is the main file.
 
 - The program will download the "base.en" whisper model on the first launch (Approx. 140 MB).
 
