@@ -8,6 +8,7 @@ import webbrowser
 import tkinter as tk
 from win32api import GetMonitorInfo, MonitorFromPoint
 import threading
+from sys import exit
 
 
 # Custom paths
