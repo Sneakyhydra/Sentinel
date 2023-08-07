@@ -28,6 +28,8 @@ vkeyboard = keyboard.Controller()
 global r
 r = sr.Recognizer()
 
+def gui_command():
+    os.system("gui_command.py 1")
 
 def calibrate():
     vkeyboard.release(keyboard.Key.ctrl)
@@ -113,12 +115,14 @@ def setup(icon):
     print("Press Ctrl+Alt+C to calibrate microphone.")
     print("Press Ctrl+Alt+S to toggle window visibility.")
     print("Press Ctrl+Alt+Shift to execute a command.")
+    print("Press Ctrl+Alt+X to edit commands.")
 
     with keyboard.GlobalHotKeys({
         '<ctrl>+<alt>+<shift>': execute,
             '<ctrl>+<alt>+q': quit_program,
             '<ctrl>+<alt>+c': calibrate,
-            '<ctrl>+<alt>+s': toggle_window}) as h:
+            '<ctrl>+<alt>+s': toggle_window,
+            '<ctrl>+<alt>+x': gui_command}) as h:
         h.join()
 
 
@@ -130,7 +134,8 @@ assistant_icon = pystray.Icon("Sentinel")
 assistant_icon.menu = Menu(
     MenuItem("Exit", lambda: exit_action(assistant_icon)),
     MenuItem("Calibrate", calibrate),
-    MenuItem("Toggle Window", toggle_window))
+    MenuItem("Toggle Window", toggle_window),
+    MenuItem("Edit Commands", gui_command),)
 assistant_icon.icon = assistant_logo
 assistant_icon.title = "Sentinel"
 

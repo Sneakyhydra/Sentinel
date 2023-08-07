@@ -1,0 +1,15 @@
+{
+    "urls": {
+        "open youtube": "https://www.youtube.com",
+        "open you tube": "https://www.youtube.com",
+        "open your tube": "https://www.youtube.com",
+        "open stack": "https://www.stackoverflow.com",
+        "open stack overflow": "https://www.stackoverflow.com",
+        "open udemy": "https://www.udemy.com/home/my-courses/learning/",
+        "open whatsapp": "https://web.whatsapp.com",
+        "open gmail": "https://mail.google.com/mail/u/0/#inbox"
+    },
+    "app": {
+        "open chrome": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe"
+    }
+}
