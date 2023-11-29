@@ -14,7 +14,7 @@ import pystray
 import speech_recognition as sr
 from pynput import keyboard
 import atexit
-from assets.lib import whisper
+import whisper
 
 global audio_model
 model = "base.en"

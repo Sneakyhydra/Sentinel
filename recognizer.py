@@ -132,7 +132,8 @@ def main(energy_threshold, audio_model):
 
     root : tk.Tk
     root = tk.Tk()
-    root.configure(background='#292929')
+    root.configure(
+        background='#292929')
     root.attributes('-alpha', 0.8)
 
     root.overrideredirect(True)
