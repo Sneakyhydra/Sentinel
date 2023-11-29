@@ -1,8 +1,8 @@
-# Project Sentinel
+## Description
 
-Voice assistant made with python 3 for Windows.  
-It uses OpenAI's Whisper to convert speech to text.  
-Speech Recognition is offline but online commands can be added.  
+Voice assistant made with python 3 for Windows.
+It uses OpenAI's Whisper to convert speech to text.
+Speech Recognition is offline but online commands can be added.
 It understands English only.
 
 You can get the latest build from the releases section.
@@ -55,7 +55,7 @@ You can get the latest build from the releases section.
 
 ### Shortcut to start listening for command-
 
-"l_ctrl + l_alt + l_shift" (starts listening for the voice command)  
-"l_ctrl + l_alt + q" (Closes the app)  
-"l_ctrl + l_alt + c" (Calibrate the microphone)  
+"l_ctrl + l_alt + l_shift" (starts listening for the voice command)
+"l_ctrl + l_alt + q" (Closes the app)
+"l_ctrl + l_alt + c" (Calibrate the microphone)
 "l_ctrl + l_alt + s" (Toggle the window)
