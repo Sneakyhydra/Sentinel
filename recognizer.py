@@ -9,6 +9,7 @@ import tkinter as tk
 from win32api import GetMonitorInfo, MonitorFromPoint
 import threading
 from sys import exit
+import json
 
 
 # Custom paths
@@ -62,25 +63,38 @@ def search_youtube(query):
 def voiceCommands(query):
     # Commands
     try:
-        # Open urls
-        if "open youtube" == query or "open you tube" == query or "open your tube" == query:
-            open_url("https://www.youtube.com")
+        f = open('command_data.json')
+        data = json.load(f)
+        f.close()
+        
+        for command in data["urls"]:
+            if command == query:
+                open_url(data["urls"][command])
+                break
 
-        elif "open stack" == query:
-            open_url("https://www.stackoverflow.com")
+        for command in data["app"]:
+            if command == query:
+                os.startfile(data["app"][command])
+                break
+        # # Open urls
+        # if "open youtube" == query or "open you tube" == query or "open your tube" == query:
+        #     open_url("https://www.youtube.com")
 
-        elif "open udemy" == query:
-            open_url("https://www.udemy.com/home/my-courses/learning/")
+        # elif "open stack" == query:
+        #     open_url("https://www.stackoverflow.com")
 
-        elif "open gmail" == query:
-            open_url("https://mail.google.com/mail/u/0/#inbox")
+        # elif "open udemy" == query:
+        #     open_url("https://www.udemy.com/home/my-courses/learning/")
 
-        elif "open whatsapp" == query:
-            open_url("https://web.whatsapp.com/")
+        # elif "open gmail" == query:
+        #     open_url("https://mail.google.com/mail/u/0/#inbox")
+
+        # elif "open whatsapp" == query:
+        #     open_url("https://web.whatsapp.com/")
 
         # Search
         # Search youtube
-        elif "youtube " == query[:8]:
+        if "youtube " == query[:8]:
             query = query[8:]
             url = search_youtube(query)
             url = url.replace(" ", "+")
@@ -94,8 +108,8 @@ def voiceCommands(query):
             open_url(url)
 
         # Launch apps
-        elif "open chrome" == query:
-            os.startfile(chrome_path)
+        # elif "open chrome" == query:
+        #     os.startfile(chrome_path)
 
         elif "open code" == query:
             os.startfile(code_path)
